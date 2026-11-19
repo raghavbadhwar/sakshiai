@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --canvas-khadi: #f7f4ee;
+  --surface-paper: #ffffff;
+  --surface-tint: #efeae0;
+  --ink-primary: #111d35;
+  --ink-muted: #525b6e;
+  --rule-hairline: #dcd6c8;
+  --accent-saffron: #c85a17;
+  --accent-saffron-bg: #fdf1e8;
+  --accent-jade: #0f6e4a;
+  --accent-jade-bg: #e7f5ee;
+  --accent-crimson: #b42318;
+  --accent-crimson-bg: #fdeceb;
+}
+
+@theme inline {
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: var(--canvas-khadi);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  background-image: radial-gradient(rgba(17, 29, 53, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.ledger-card {
+  background: var(--surface-paper);
+  border: 1px solid var(--rule-hairline);
+  box-shadow: 0 1px 2px rgba(17, 29, 53, 0.04), 0 8px 24px -12px rgba(17, 29, 53, 0.08);
+}
+
+.official-sheet {
+  background: var(--surface-paper);
+  border: 1px solid #cfc7b6;
+  border-top: 4px double var(--ink-primary);
+  box-shadow: 0 12px 32px -12px rgba(17, 29, 53, 0.14);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-ledger-in {
+  animation: fadeSlideUp 0.28s ease-out both;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only-sheet {
+    box-shadow: none !important;
+    border: 1px solid #000000 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+}
